@@ -1,0 +1,22 @@
+package com.spring.core.main;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import com.spring.core.beans.Employee;
+
+public class MainApp {
+	public static void main(String[] args) {
+		System.out.println("Main running...");
+
+		ApplicationContext context = new ClassPathXmlApplicationContext("com/spring/core/metadata/xmlConfig.xml");
+
+		Employee emp1 = context.getBean("emp1", Employee.class);
+		System.out.println(emp1);
+		
+
+		((ConfigurableApplicationContext) context).close();
+
+	}
+}

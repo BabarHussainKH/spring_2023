@@ -1,0 +1,9 @@
+package com.spring.core.beans;
+
+public class Address {
+
+	private int zipCode;
+	private String country;
+	private String state;
+
+}

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+		https://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/util
+		https://www.springframework.org/schema/beans/spring-util.xsd">
+
+	<bean class="java.util.ArrayList" id="langsList">
+	
+	</bean>
+
+	<bean id="dev1" class="com.spring.core.beans.Developer">
+
+		<!-- by property -->
+		<property name="id" value="422" />
+		<property name="name" value="Adam" />
+		<property name="email" value="admn23r23@gmail.com" />
+		<property name="address" ref="add1" />
+		<property name="langs">
+			<null />
+		</property>
+
+
+		<!-- by constructor -->
+		<!-- <constructor-arg name="id" value="422" /> <constructor-arg name="name" 
+			value="Adam" /> <constructor-arg name="email" value="admn23r23@gmail.com" 
+			/> <constructor-arg name="address"> <null /> </constructor-arg> <constructor-arg 
+			name="langs"> <null /> </constructor-arg> -->
+	</bean>
+
+	<bean id="add1" class="com.spring.core.beans.Address">
+		<property name="zipCode" value="23425" />
+		<property name="country" value="Pakistan" />
+		<property name="state" value="Sindh" />
+		<property name="city" value="Karachi" />
+		<property name="area" value="Clifton Block 6" />
+		<property name="street" value="54th Street" />
+
+	</bean>
+
+
+</beans>
