@@ -14,8 +14,11 @@ public class MainApp {
 
 		Developer dev1 = context.getBean("dev1", Developer.class);
 		System.out.println(dev1);
-
+		System.out.println("");
+		Developer dev2 = context.getBean("dev2", Developer.class);
+		System.out.println(dev2);
+ 
 		((ConfigurableApplicationContext) context).close();
  
-	}
+	}	
 }

@@ -1,12 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:context="http://www.springframework.org/schema/context"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
 		https://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/util
-		https://www.springframework.org/schema/util/spring-util.xsd">
+		https://www.springframework.org/schema/util/spring-util.xsd
+		http://www.springframework.org/schema/context
+		https://www.springframework.org/schema/context/spring-context.xsd">
 
+
+	<context:annotation-config />
 
 	<util:list id="langs" value-type="java.lang.String">
 		<value>Java</value>
@@ -16,30 +21,71 @@
 		<value>Flutter</value>
 	</util:list>
 
-	<bean id="add1" class="com.spring.core.beans.Address">
+	<bean id="address" class="com.spring.core.beans.Address">
 		<property name="zipCode" value="23425" />
 		<property name="country" value="Pakistan" />
 		<property name="state" value="Sindh" />
 		<property name="city" value="Karachi" />
 		<property name="area" value="Clifton Block 6" />
 		<property name="street" value="54th Street" />
-
+	</bean>
+	<bean id="address11" class="com.spring.core.beans.Address">
+		<property name="zipCode" value="23425" />
+		<property name="country" value="Iran" />
+		<property name="state" value="dsfdsl" />
+		<property name="city" value="sdfalo" />
+		<property name="area" value="Clifton Block 6" />
+		<property name="street" value="54th Street" />
 	</bean>
 
 	<bean id="dev1" class="com.spring.core.beans.Developer">
+
 		<!-- by property -->
 		<property name="id" value="422" />
 		<property name="name" value="Adam" />
 		<property name="email" value="admn23r23@gmail.com" />
-		<property name="address" ref="add1" />
+	<!-- 	<property name="address">
+			<ref bean="address" />
+		</property> -->
 		<property name="langs" ref="langs" />
 
+		<!-- <property name="langs"> <set> <value>Java EE</value> <value>Java EE</value> 
+			<value>NodeJs</value> <value>SpringBoot</value> <value>JavaScript</value> 
+			<value>Flutter</value> </set> </property> -->
+		<!-- by constructor -->
+		<!-- <constructor-arg name="id" value="422"/> <constructor-arg name="name" 
+			value="Adam"/> <constructor-arg name="email" value="admn23r23@gmail.com" 
+			/> <constructor-arg name="address"> <null/> </constructor-arg> <constructor-arg 
+			name="langs"> <null/> </constructor-arg> -->
+	</bean>
+
+	<bean id="dev2" class="com.spring.core.beans.Developer">
+		<!-- by property -->
+		<constructor-arg name="id" value="422" type="int" />
+		<constructor-arg name="name" value="Jacob" />
+		<constructor-arg name="email"
+			value="admn23r23@gmail.com" />
+		<!-- <property name="address" ref="add1"/> -->
+		<!-- <property name="address"> <ref bean="add1"/> </property> -->
+		<!-- <property name="langs" ref="langs"/> -->
+
+		<constructor-arg name="langs">
+			<set>
+				<value>Java EE</value>
+				<value>Java EE</value>
+				<value>NodeJs</value>
+				<value>SpringBoot</value>
+				<value>JavaScript</value>
+				<value>Flutter</value>
+			</set>
+		</constructor-arg>
 
 		<!-- by constructor -->
-		<!-- <constructor-arg name="id" value="422" /> <constructor-arg name="name" 
-			value="Adam" /> <constructor-arg name="email" value="admn23r23@gmail.com" 
-			/> <constructor-arg name="address"> <null /> </constructor-arg> <constructor-arg 
-			name="langs"> <null /> </constructor-arg> -->
+
+		<!-- <constructor-arg name="id" value="422"/> <constructor-arg name="name" 
+			value="Adam"/> <constructor-arg name="email" value="admn23r23@gmail.com" 
+			/> <constructor-arg name="address"> <null/> </constructor-arg> <constructor-arg 
+			name="langs"> <null/> </constructor-arg> -->
 	</bean>
 
 
