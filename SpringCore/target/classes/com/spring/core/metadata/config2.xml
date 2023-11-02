@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+		https://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/util
+		https://www.springframework.org/schema/util/spring-util.xsd
+		http://www.springframework.org/schema/context
+		https://www.springframework.org/schema/context/spring-context.xsd">
+
+
+	<context:annotation-config />
+
+	<bean id="exp1" class="com.spring.core.beans.Experience">
+		<property name="title" value="Bank Al Habib" />
+	</bean>
+
+	<bean id="proj1" class="com.spring.core.beans.Projects"
+		factory-method="createInstance" />
+
+
+
+</beans>

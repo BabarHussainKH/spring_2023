@@ -1,19 +1,34 @@
 package com.spring.core.beans;
 
-import java.util.List;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
 
+@Component("dev")
+@Scope("prototype")
 public class Developer {
 	private int id;
+	@Value("Asif")
 	private String name;
 	private String email;
-	@Autowired
-	@Qualifier("address11")
+//	@Autowired
+//	@Qualifier("address11")
 	private Address address;
 	private Set<String> langs;
+//	@Autowired
+	private Experience experience;
+
+	public Experience getExperience() {
+		return experience;
+	}
+
+	public void setExperience(Experience experience) {
+		this.experience = experience;
+	}
 
 	public Developer() {
 	}
@@ -37,7 +52,7 @@ public class Developer {
 //		this.langs = langs;
 //	}
 
-	@Autowired(required = false)
+//	@Autowired(required = false)
 	public Developer(int id, String name, String email, Set<String> langs, Address address) {
 		super();
 		System.out.println("== Developer  - 5 args constructor called");
@@ -93,8 +108,8 @@ public class Developer {
 
 	@Override
 	public String toString() {
-		return "Developer [id=" + id + ", name=" + name + ", email=" + email + ", \naddress=" + address + ", \nlangs="
-				+ langs + "]";
+		return "\nDeveloper [id=" + id + ", name=" + name + ", email=" + email + ", \naddress=" + address + ", \nlangs="
+				+ langs + ", \nexperience=" + experience + "]";
 	}
 
 }
